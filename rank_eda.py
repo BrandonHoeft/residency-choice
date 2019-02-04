@@ -30,8 +30,7 @@ df2[ranks_with_no_variance] = (df2[ranks_with_no_variance].apply(lambda x: np.ra
 df.agg('median').sort_values()
 rank_by_lowest_median = df.agg('median').sort_values().index
 
-joypy.joyplot(df2, overlap=3, 
-              labels = rank_by_lowest_median,
+joypy.joyplot(df2[rank_by_lowest_median], overlap=3, 
               colormap=cm.coolwarm,
               title='Daily Program Rank Distribution: ordered by median rank',
               figsize=(10,8)) #https://github.com/sbebo/joypy/blob/master/Joyplot.ipynb
